@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */; };
+		DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */; };
+		DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */; };
+		DDF8C0221CBC6D99004D1BC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */; };
+		DDF8C0241CBC6D9A004D1BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Portfolio Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDF8C01E1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Share_Portfolio_Viewer.xcdatamodel; sourceTree = "<group>"; };
+		DDF8C0211CBC6D99004D1BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDF8C0251CBC6D9A004D1BC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDF8C0131CBC6D99004D1BC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDF8C00D1CBC6D99004D1BC4 = {
+			isa = PBXGroup;
+			children = (
+				DDF8C0181CBC6D99004D1BC4 /* Share Portfolio Viewer */,
+				DDF8C0171CBC6D99004D1BC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDF8C0171CBC6D99004D1BC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDF8C0181CBC6D99004D1BC4 /* Share Portfolio Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */,
+				DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */,
+				DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */,
+				DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */,
+				DDF8C0251CBC6D9A004D1BC4 /* Info.plist */,
+				DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */,
+			);
+			path = "Share Portfolio Viewer";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDF8C0151CBC6D99004D1BC4 /* Share Portfolio Viewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDF8C0281CBC6D9A004D1BC4 /* Build configuration list for PBXNativeTarget "Share Portfolio Viewer" */;
+			buildPhases = (
+				DDF8C0121CBC6D99004D1BC4 /* Sources */,
+				DDF8C0131CBC6D99004D1BC4 /* Frameworks */,
+				DDF8C0141CBC6D99004D1BC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Share Portfolio Viewer";
+			productName = "Share Portfolio Viewer";
+			productReference = DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDF8C00E1CBC6D99004D1BC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = markguthrie;
+				TargetAttributes = {
+					DDF8C0151CBC6D99004D1BC4 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = RPCMG9KKMK;
+					};
+				};
+			};
+			buildConfigurationList = DDF8C0111CBC6D99004D1BC4 /* Build configuration list for PBXProject "Share Portfolio Viewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDF8C00D1CBC6D99004D1BC4;
+			productRefGroup = DDF8C0171CBC6D99004D1BC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDF8C0151CBC6D99004D1BC4 /* Share Portfolio Viewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDF8C0141CBC6D99004D1BC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDF8C0241CBC6D9A004D1BC4 /* Assets.xcassets in Resources */,
+				DDF8C0221CBC6D99004D1BC4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDF8C0121CBC6D99004D1BC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */,
+				DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */,
+				DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDF8C0211CBC6D99004D1BC4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDF8C0261CBC6D9A004D1BC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		DDF8C0271CBC6D9A004D1BC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDF8C0291CBC6D9A004D1BC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Share Portfolio Viewer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "markguthrie.com.example.Share-Portfolio-Viewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DDF8C02A1CBC6D9A004D1BC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Share Portfolio Viewer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "markguthrie.com.example.Share-Portfolio-Viewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDF8C0111CBC6D99004D1BC4 /* Build configuration list for PBXProject "Share Portfolio Viewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDF8C0261CBC6D9A004D1BC4 /* Debug */,
+				DDF8C0271CBC6D9A004D1BC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDF8C0281CBC6D9A004D1BC4 /* Build configuration list for PBXNativeTarget "Share Portfolio Viewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDF8C0291CBC6D9A004D1BC4 /* Debug */,
+				DDF8C02A1CBC6D9A004D1BC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDF8C01E1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodel */,
+			);
+			currentVersion = DDF8C01E1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodel */;
+			path = Share_Portfolio_Viewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DDF8C00E1CBC6D99004D1BC4 /* Project object */;
+}
