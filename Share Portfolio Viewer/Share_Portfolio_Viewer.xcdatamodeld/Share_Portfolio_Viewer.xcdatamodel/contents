@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Groupings" representedClassName=".Groupings" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Settings" representedClassName=".Settings" syncable="YES">
+        <attribute name="currencySign" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showAll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Shares" representedClassName=".Shares" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="purchasePrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Groupings" positionX="0" positionY="72" width="128" height="90"/>
+        <element name="Settings" positionX="27" positionY="99" width="128" height="90"/>
+        <element name="Shares" positionX="-36" positionY="9" width="128" height="105"/>
+    </elements>
 </model>

@@ -40,11 +40,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-  //      let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
-  //      var share = NSEntityDescription.insertNewObjectForEntityForName("DataModel", inManagedObjectContext: self.managedObjectContext) as Code
-        
-  //      self.calc.saveNewShares("CBA.ax", description: "Commonwealth Bank", units: 1000, purchasePrice: 76.786, purchaseDate: NSDate())
+//        self.calc.saveNewShares("A2M.ax", description: "A2 Milk Company", units: 10000, purchasePrice: 1.658)
+//        self.calc.saveNewShares("BGA.ax", description: "Bega Cheese", units: 1000, purchasePrice: 6.01)
+//        self.calc.saveNewShares("CBA.ax", description: "Commonwealth Bank", units: 1000, purchasePrice: 76.786)
+//        self.calc.saveNewShares("COH.ax", description: "Cochlear", units: 500, purchasePrice: 101.269)
+//        self.calc.saveNewShares("CSL.ax", description: "CSL Limited", units: 800, purchasePrice: 103.991)
+//        self.calc.saveNewShares("GEM.ax", description: "G8 Education", units: 15000, purchasePrice: 3.694)
+//        self.calc.saveNewShares("GHC.ax", description: "Gen Healthcare", units: 25000, purchasePrice: 1.906)
+//        self.calc.saveNewShares("MQG.ax", description: "Macquarie Group", units: 500, purchasePrice: 65.852)
+//        self.calc.saveNewShares("TCL.ax", description: "Transurban Group", units: 7000, purchasePrice: 11.091)
+//        self.calc.saveNewShares("WFD.ax", description: "Westfield", units: 8000, purchasePrice: 10.102)
+
+     
+//        self.calc.saveNewGroup("Financials", code: "MQG.ax,CBA.ax", description: "Finance Companies")
         
     }
     
@@ -60,6 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.stockPurchased.text = ""
         self.stockValue.text = ""
         self.stockDifference.text = ""
+        
     }
     
     //---------------------------------------------------------
@@ -72,7 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.calc.getDataForShareOrPortfolio(code) { (data) -> () in
             
-            self.stockName.text         = code + " " + name
+            self.stockName.text         = name
             self.stockPrice.text        = data.stockPrice
             self.stockBought.text       = data.stockPaid
             self.stockVolume.text       = data.stockVolume

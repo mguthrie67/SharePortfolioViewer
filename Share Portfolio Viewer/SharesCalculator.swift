@@ -25,14 +25,18 @@ struct tableData {
 }
 
 
+
 class SharesCalculator {
     
     // static data - add UI to manage this later
     
-    var titleArray = ["All shares", "A2 Milk Company", "Bega Cheese", "Commonwealth Bank", "Cochlear", "CSL Limited", "G8 Education", "Gen Healthcare", "Macquarie Group", "Transurban Group", "Westfield"]
-    var codeArray = ["All", "A2M.ax", "BGA.ax", "CBA.ax", "COH.ax", "CSL.ax", "GEM.ax", "GHC.ax", "MQG.ax", "TCL.ax", "WFD.ax"]
-    var purchaseArray = ["0", "1.658", "6.01", "76.786", "101.269", "103.991", "3.694", "1.906", "65.852", "11.091", "10.102"]
-    var unitsArray = ["0", "10000", "1000", "1000", "500", "800", "15000", "25000", "500", "7000", "8000"]
+    var titleArray          = [String]()
+    var codeArray           = [String]()
+    var purchaseArray       = [Double]()
+    var unitsArray          = [Int]()
+    var groupArray          = [String]()
+    var groupTitleArray     = [String]()
+    var groupMembersArray   = [String]()
 
 // helper class
     
@@ -41,6 +45,10 @@ class SharesCalculator {
 // context for CoreData
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    init() {
+        self.loadData()
+    }
     
     func getDataForShareOrPortfolio(code : String, completion:(returnData: basicShareStructure) ->()) {
         
@@ -78,16 +86,16 @@ class SharesCalculator {
             
                 returnData.stockPrice = "$" + shares.bid!
                 let purnum = Double(self.purchaseArray[ind!])
-                returnData.stockPaid = "$" + String(format: "%.2f", purnum!)
-                returnData.stockVolume = numberFormatter.stringFromNumber(Double(self.unitsArray[ind!])!)
+                returnData.stockPaid = "$" + String(format: "%.2f", purnum)
+                returnData.stockVolume = numberFormatter.stringFromNumber(Double(self.unitsArray[ind!]))
             
 // calculations
             
                 let pur = Double(self.purchaseArray[ind!])
                 let vol = Double(self.unitsArray[ind!])
                 let now = Double(shares.last!)
-                let bou = pur! * vol!
-                let val = now! * vol!
+                let bou = pur * vol
+                let val = now! * vol
                 let upd = abs(val - bou)
                 returnData.stockPurchase = "$" + numberFormatter.stringFromNumber(bou)!
                 returnData.stockValue = "$" + numberFormatter.stringFromNumber(val)!
@@ -101,7 +109,7 @@ class SharesCalculator {
             
                 returnData.barChartTitles = ["Bought", "Close", "Now"]
                 print(bou)
-                returnData.barChartData = [bou, Double(shares.previousClose)! * vol!, Double(shares.last)! * vol!]
+                returnData.barChartData = [bou, Double(shares.previousClose)! * vol, Double(shares.last)! * vol]
             
                 dispatch_async(dispatch_get_main_queue()) {
                     completion(returnData : returnData)
@@ -114,15 +122,25 @@ class SharesCalculator {
     // return code and title info
     
     func getTitle(index: Int) -> String{
-        return self.titleArray[index]
+        if index < self.groupTitleArray.count {
+            return self.groupTitleArray[index]
+        } else {
+            return self.titleArray[index - self.groupTitleArray.count]
+        }
     }
 
     func getCode(index: Int) -> String{
-        return self.codeArray[index]
+        print(index)
+        print(self.groupArray.count)
+        if index < self.groupArray.count {
+            return self.groupArray[index]
+        } else {
+            return self.codeArray[index - self.groupArray.count]
+        }
     }
 
     func getLength() -> Int {
-        return self.codeArray.count
+        return self.codeArray.count + self.groupArray.count
     }
     
     
@@ -146,24 +164,95 @@ class SharesCalculator {
         }
     }
     
- //   func saveNewShares(code : String, description: String, units: Int, purchasePrice: Double, purchaseDate: NSDate) {
-        
-        
-   //     var share = NSEntityDescription.insertNewObjectForEntityForName("DataModel", inManagedObjectContext: self.managedObjectContext) as Code
-            
-   //     share.code = code
-   //     share.title = description
-   //     share.purchased = purchaseDate
-   //     share.volume = units
-   //     share.price = purchasePrice
-        
-    //    do {
-    //        try self.managedObjectContext.save()
-    //    } catch {
-    //        print("Error saving")
-    //    }
-        
-        
-  //  }
+    //--------------------------------
+    // save a group to core data
+    //--------------------------------
     
+    func saveNewGroup(name: String, code : String, description: String) {
+        
+        let group = NSEntityDescription.insertNewObjectForEntityForName("Groupings", inManagedObjectContext: self.managedObjectContext) as! Groupings
+        
+        group.code = code
+        group.name = name
+        group.title = description
+        
+        do {
+            try self.managedObjectContext.save()
+            print("Saved: \(name)")
+        } catch {
+            print("Error saving")
+        }
+    }
+    //--------------------------------
+    // save a share to core data
+    //--------------------------------
+    
+    func saveNewShares(code : String, description: String, units: Int, purchasePrice: Double) {
+        
+        let share = NSEntityDescription.insertNewObjectForEntityForName("Shares", inManagedObjectContext: self.managedObjectContext) as! Shares
+        
+        
+        share.code = code
+        share.name = description
+        share.volume = units
+        share.purchasePrice = purchasePrice
+        
+        do {
+            try self.managedObjectContext.save()
+            print("Saved: \(share.code)")
+        } catch {
+            print("Error saving")
+        }
+    }
+    
+    
+//-----------------------------------
+// load our data from Core Data
+//-----------------------------------
+    func loadData() {
+
+// Portfolios (Groups)
+        let grReq: NSFetchRequest = NSFetchRequest(entityName: "Groupings")
+
+        grReq.returnsObjectsAsFaults = false
+//        grReq.returnsDistinctResults = true
+        grReq.propertiesToFetch = ["name", "code","title"]
+        
+        do {
+            let result : [AnyObject] = try self.managedObjectContext.executeFetchRequest(grReq)
+            
+            for (index, _) in result.enumerate() {
+                self.groupArray.append(result[index].valueForKey("name") as! String)
+                self.groupTitleArray.append(result[index].valueForKey("title") as! String)
+                self.groupMembersArray.append(result[index].valueForKey("code") as! String)
+            }
+            
+        } catch {
+            print("Error")
+        }
+        
+        print(self.groupArray)
+
+// codes
+        
+        let freq: NSFetchRequest = NSFetchRequest(entityName: "Shares")
+ //       freq.predicate = NSPredicate(format: "code contains[c] %@", "CB")
+        let sorter: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: true)
+        freq.sortDescriptors = [sorter]
+        freq.returnsObjectsAsFaults = false
+        do {
+            let result : [AnyObject] = try self.managedObjectContext.executeFetchRequest(freq)
+            
+            for (index, _) in result.enumerate() {
+                self.codeArray.append(result[index].valueForKey("code") as! String)
+                self.titleArray.append(result[index].valueForKey("name") as! String)
+                self.purchaseArray.append(result[index].valueForKey("purchasePrice") as! Double)
+                self.unitsArray.append(result[index].valueForKey("volume") as! Int)
+            }
+            
+        } catch {
+            print("Error")
+        }
+
+    }
 }

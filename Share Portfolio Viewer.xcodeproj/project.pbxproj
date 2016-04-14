@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C0A3F6D12CEA855E3087B57 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00B787957241F67608DFD15 /* Pods.framework */; };
+		DDE0CC511CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0CC4F1CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift */; };
+		DDE0CC521CBF48D700D3EEF1 /* Groupings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0CC501CBF48D700D3EEF1 /* Groupings.swift */; };
 		DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */; };
 		DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */; };
 		DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */; };
@@ -19,6 +21,10 @@
 		DDF8C0421CBF18AA004D1BC4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */; };
 		DDF8C0491CBF1C08004D1BC4 /* SharesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */; };
 		DDF8C04E1CBF1C12004D1BC4 /* YahooShares.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */; };
+		DDF8C0571CBF2E65004D1BC4 /* Settings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0511CBF2E65004D1BC4 /* Settings+CoreDataProperties.swift */; };
+		DDF8C0581CBF2E65004D1BC4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0521CBF2E65004D1BC4 /* Settings.swift */; };
+		DDF8C0591CBF2E65004D1BC4 /* Shares+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0531CBF2E65004D1BC4 /* Shares+CoreDataProperties.swift */; };
+		DDF8C05A1CBF2E65004D1BC4 /* Shares.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0541CBF2E65004D1BC4 /* Shares.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		C00B787957241F67608DFD15 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE0CC4F1CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Groupings+CoreDataProperties.swift"; path = "Share Portfolio Viewer/Groupings+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DDE0CC501CBF48D700D3EEF1 /* Groupings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groupings.swift; path = "Share Portfolio Viewer/Groupings.swift"; sourceTree = "<group>"; };
 		DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Portfolio Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,10 @@
 		DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharesCalculator.swift; sourceTree = "<group>"; };
 		DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YahooShares.swift; sourceTree = "<group>"; };
+		DDF8C0511CBF2E65004D1BC4 /* Settings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Settings+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DDF8C0521CBF2E65004D1BC4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		DDF8C0531CBF2E65004D1BC4 /* Shares+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Shares+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DDF8C0541CBF2E65004D1BC4 /* Shares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shares.swift; sourceTree = "<group>"; };
 		E81319D77BD73091E4547DAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F13A32514F656E0AAB73370C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +136,12 @@
 		DDF8C00D1CBC6D99004D1BC4 = {
 			isa = PBXGroup;
 			children = (
+				DDE0CC4F1CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift */,
+				DDE0CC501CBF48D700D3EEF1 /* Groupings.swift */,
+				DDF8C0511CBF2E65004D1BC4 /* Settings+CoreDataProperties.swift */,
+				DDF8C0521CBF2E65004D1BC4 /* Settings.swift */,
+				DDF8C0531CBF2E65004D1BC4 /* Shares+CoreDataProperties.swift */,
+				DDF8C0541CBF2E65004D1BC4 /* Shares.swift */,
 				DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */,
 				DDF8C0181CBC6D99004D1BC4 /* Share Portfolio Viewer */,
 				DDF8C0171CBC6D99004D1BC4 /* Products */,
@@ -331,11 +349,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */,
+				DDF8C0571CBF2E65004D1BC4 /* Settings+CoreDataProperties.swift in Sources */,
 				DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */,
+				DDF8C0581CBF2E65004D1BC4 /* Settings.swift in Sources */,
+				DDE0CC521CBF48D700D3EEF1 /* Groupings.swift in Sources */,
+				DDF8C0591CBF2E65004D1BC4 /* Shares+CoreDataProperties.swift in Sources */,
 				DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */,
 				DDF8C0421CBF18AA004D1BC4 /* SwiftyJSON.swift in Sources */,
 				DDF8C04E1CBF1C12004D1BC4 /* YahooShares.swift in Sources */,
+				DDF8C05A1CBF2E65004D1BC4 /* Shares.swift in Sources */,
 				DDF8C0491CBF1C08004D1BC4 /* SharesCalculator.swift in Sources */,
+				DDE0CC511CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
