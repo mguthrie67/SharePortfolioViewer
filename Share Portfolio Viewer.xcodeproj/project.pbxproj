@@ -7,15 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0A3F6D12CEA855E3087B57 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00B787957241F67608DFD15 /* Pods.framework */; };
 		DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */; };
 		DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */; };
 		DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */; };
 		DDF8C0221CBC6D99004D1BC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */; };
 		DDF8C0241CBC6D9A004D1BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */; };
 		DDF8C02C1CBE2EB6004D1BC4 /* AppleSettingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF8C02B1CBE2EB6004D1BC4 /* AppleSettingsIcon.png */; };
+		DDF8C03C1CBF185E004D1BC4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF8C0371CBF1846004D1BC4 /* Charts.framework */; };
+		DDF8C03D1CBF185E004D1BC4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDF8C0371CBF1846004D1BC4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDF8C0421CBF18AA004D1BC4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */; };
+		DDF8C0491CBF1C08004D1BC4 /* SharesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */; };
+		DDF8C04E1CBF1C12004D1BC4 /* YahooShares.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DDF8C0341CBF1846004D1BC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		DDF8C0361CBF1846004D1BC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		DDF8C0381CBF1846004D1BC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		DDF8C03A1CBF1846004D1BC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		DDF8C03E1CBF185E004D1BC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A52C5C361BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDF8C0401CBF185F004D1BC4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DDF8C03D1CBF185E004D1BC4 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C00B787957241F67608DFD15 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Portfolio Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +83,12 @@
 		DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF8C0251CBC6D9A004D1BC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDF8C02B1CBE2EB6004D1BC4 /* AppleSettingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppleSettingsIcon.png; sourceTree = "<group>"; };
+		DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master 3/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharesCalculator.swift; sourceTree = "<group>"; };
+		DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YahooShares.swift; sourceTree = "<group>"; };
+		E81319D77BD73091E4547DAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F13A32514F656E0AAB73370C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +96,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF8C03C1CBF185E004D1BC4 /* Charts.framework in Frameworks */,
+				5C0A3F6D12CEA855E3087B57 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9715A2D63C7DE2BDCE92B3AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C00B787957241F67608DFD15 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6AC4697328D73A827199118 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E81319D77BD73091E4547DAB /* Pods.debug.xcconfig */,
+				F13A32514F656E0AAB73370C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DDF8C00D1CBC6D99004D1BC4 = {
 			isa = PBXGroup;
 			children = (
+				DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */,
 				DDF8C0181CBC6D99004D1BC4 /* Share Portfolio Viewer */,
 				DDF8C0171CBC6D99004D1BC4 /* Products */,
+				B6AC4697328D73A827199118 /* Pods */,
+				9715A2D63C7DE2BDCE92B3AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +145,27 @@
 			children = (
 				DDF8C02B1CBE2EB6004D1BC4 /* AppleSettingsIcon.png */,
 				DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */,
+				DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */,
 				DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */,
 				DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */,
+				DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */,
+				DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */,
 				DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */,
 				DDF8C0251CBC6D9A004D1BC4 /* Info.plist */,
 				DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */,
 			);
 			path = "Share Portfolio Viewer";
+			sourceTree = "<group>";
+		};
+		DDF8C02E1CBF1846004D1BC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDF8C0351CBF1846004D1BC4 /* Charts.framework */,
+				DDF8C0371CBF1846004D1BC4 /* Charts.framework */,
+				DDF8C0391CBF1846004D1BC4 /* Charts.framework */,
+				DDF8C03B1CBF1846004D1BC4 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,13 +175,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDF8C0281CBC6D9A004D1BC4 /* Build configuration list for PBXNativeTarget "Share Portfolio Viewer" */;
 			buildPhases = (
+				199A92BC0AB04241B4580CBB /* Check Pods Manifest.lock */,
 				DDF8C0121CBC6D99004D1BC4 /* Sources */,
 				DDF8C0131CBC6D99004D1BC4 /* Frameworks */,
 				DDF8C0141CBC6D99004D1BC4 /* Resources */,
+				DDF8C0401CBF185F004D1BC4 /* Embed Frameworks */,
+				2C2A970D7CB2914C0290CB28 /* Embed Pods Frameworks */,
+				175D27F3BD0048DB2D4796E5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DDF8C03F1CBF185E004D1BC4 /* PBXTargetDependency */,
 			);
 			name = "Share Portfolio Viewer";
 			productName = "Share Portfolio Viewer";
@@ -114,12 +220,49 @@
 			mainGroup = DDF8C00D1CBC6D99004D1BC4;
 			productRefGroup = DDF8C0171CBC6D99004D1BC4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DDF8C02E1CBF1846004D1BC4 /* Products */;
+					ProjectRef = DDF8C02D1CBF1846004D1BC4 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DDF8C0151CBC6D99004D1BC4 /* Share Portfolio Viewer */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DDF8C0351CBF1846004D1BC4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = DDF8C0341CBF1846004D1BC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDF8C0371CBF1846004D1BC4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = DDF8C0361CBF1846004D1BC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDF8C0391CBF1846004D1BC4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = DDF8C0381CBF1846004D1BC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDF8C03B1CBF1846004D1BC4 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = DDF8C03A1CBF1846004D1BC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DDF8C0141CBC6D99004D1BC4 /* Resources */ = {
@@ -134,6 +277,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		175D27F3BD0048DB2D4796E5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		199A92BC0AB04241B4580CBB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2C2A970D7CB2914C0290CB28 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DDF8C0121CBC6D99004D1BC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -142,10 +333,21 @@
 				DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */,
 				DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */,
 				DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */,
+				DDF8C0421CBF18AA004D1BC4 /* SwiftyJSON.swift in Sources */,
+				DDF8C04E1CBF1C12004D1BC4 /* YahooShares.swift in Sources */,
+				DDF8C0491CBF1C08004D1BC4 /* SharesCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDF8C03F1CBF185E004D1BC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-TV";
+			targetProxy = DDF8C03E1CBF185E004D1BC4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */ = {
@@ -244,9 +446,11 @@
 		};
 		DDF8C0291CBC6D9A004D1BC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81319D77BD73091E4547DAB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Share Portfolio Viewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "markguthrie.com.example.Share-Portfolio-Viewer";
@@ -256,9 +460,11 @@
 		};
 		DDF8C02A1CBC6D9A004D1BC4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F13A32514F656E0AAB73370C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Share Portfolio Viewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "markguthrie.com.example.Share-Portfolio-Viewer";
@@ -285,6 +491,7 @@
 				DDF8C02A1CBC6D9A004D1BC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
