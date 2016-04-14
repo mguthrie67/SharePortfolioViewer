@@ -31,7 +31,11 @@ struct shareOrPortfolioData {
     var units: Int!
     var isGroup: BooleanType!
     var members : [String]!
-    
+}
+
+struct settings {
+    var allIsSet : BooleanType!
+    var titleName : String!
 }
 
 
@@ -51,6 +55,7 @@ class SharesCalculator {
     
     init() {
         self.loadData()
+ //       self.initiateSettings()
     }
     
 
@@ -285,6 +290,7 @@ class SharesCalculator {
             print("Error saving")
         }
     }
+    
     //--------------------------------
     // save a share to core data
     //--------------------------------
@@ -419,4 +425,7 @@ class SharesCalculator {
         }
         
     }
+    
+
+
 }

@@ -29,10 +29,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 //---------------------------
     func confirmDelete(index : Int, indexPath: NSIndexPath) {
         if let code = self.calc?.getCode(index) {
-            let message = "Confirm deletion of \(code)."
-            let alertController = UIAlertController(title: "Confirm", message: message, preferredStyle: .Alert)
+            let message = "Select action"
+            let alertController = UIAlertController(title: code, message: message, preferredStyle: .Alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
-            alertController.addAction(cancelAction)
         
             let delete = UIAlertAction(title: "Delete", style: .Default) { (action) in
 
@@ -48,14 +47,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 })
                 
             }
-            alertController.addAction(delete)
 
             let modify = UIAlertAction(title: "Modify", style: .Default) { (action) in
                 print("Do modify")
                 
             }
-            
+            alertController.addAction(cancelAction)
             alertController.addAction(modify)
+            alertController.addAction(delete)
             
             self.presentViewController(alertController, animated: true) {}
         }

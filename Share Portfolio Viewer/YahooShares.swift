@@ -188,7 +188,11 @@ class YahooShares {
             
             var results = [SharePortfolioPrices]()
             
-            let URL = "https://query.yahooapis.com/v1/public/yql?q=select%20symbol,Bid%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22\(codes)%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+//            let URL = "https://query.yahooapis.com/v1/public/yql?q=select%20symbol,Bid%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22\(codes)%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+
+            let URL = "https://query.yahooapis.com/v1/public/yql?q=select%20symbol,LastTradePriceOnly%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22\(codes)%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+
+            print(URL)
             
             // call Alamofire to do the networking
             
@@ -198,8 +202,14 @@ class YahooShares {
                 
                 for (_, subJson):(String, JSON) in json["query"]["results"]["quote"] {
                     
-                    let item = SharePortfolioPrices(code: subJson["symbol"].string, price: Double(subJson["Bid"].string!))
-                    results.append(item)
+// check we go something back
+                    let symbolExists = subJson["symbol"] != nil
+                    let priceExists = subJson["LastTradePriceOnly"] != nil
+                    
+                    if (symbolExists && priceExists) {
+                        let item = SharePortfolioPrices(code: subJson["symbol"].string, price: Double(subJson["LastTradePriceOnly"].string!))
+                        results.append(item)
+                    }
                 }
                 dispatch_async(dispatch_get_main_queue()) {
                     completion(results : results)
