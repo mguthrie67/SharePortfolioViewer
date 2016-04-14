@@ -30,7 +30,7 @@ struct shareOrPortfolioData {
     var purchase: Double!
     var units: Int!
     var isGroup: BooleanType!
-    var members : [String!]!
+    var members : [String]!
     
 }
 
@@ -53,7 +53,116 @@ class SharesCalculator {
         self.loadData()
     }
     
+
+//----------------------------------------------
+// single entry point. So that the UI doesn't
+// need to know about porfolios
+//----------------------------------------------
     func getDataForShareOrPortfolio(ind : Int, completion:(returnData: basicShareStructure) ->()) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            if (self.dataArray[ind].members != nil) {                                       // checking isGroup causes a seg fault!
+//            if (a == 1) {
+                self.getDataForPortfolio(ind) { (returnData) -> () in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(returnData : returnData)
+                    }
+                }
+            } else {
+                self.getDataForShare(ind) { (returnData) -> () in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(returnData : returnData)
+                    }
+                }
+            }
+        }
+    }
+
+    
+//-------------------------------------
+// Do portfolios
+//-------------------------------------
+    func getDataForPortfolio(ind : Int, completion:(returnData: basicShareStructure) ->()) {
+        
+        // pop our code on a thread
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+// create string of codes
+            
+            let codes = self.dataArray[ind].members.joinWithSeparator(",")
+            
+// number formatting
+            
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            
+// call yahoo class and process results
+            
+            self.yahoo.getYahooPortfolioPrices(codes) { (sharelist) -> () in
+                print(sharelist)
+                
+                var returnData = basicShareStructure()
+                
+                returnData.stockPrice = "N/A"
+                returnData.stockVolume = "N/A"
+                returnData.stockPaid = "N/A"
+                
+                var currentValue = Double(0.0)
+                var originalValue = Double(0.0)
+                for item in sharelist {
+                    
+// current
+                    let index = self.getIndexofCode(item.code)
+                    let volume = Double(self.dataArray[index].units)
+                    var value = item.price * volume
+                    currentValue = currentValue + value
+                    
+// original
+                    value = volume * self.dataArray[index].purchase
+                    originalValue = originalValue + value
+                    
+                
+                }
+                
+                let dif = currentValue - originalValue
+                
+                returnData.stockValue = "$" + numberFormatter.stringFromNumber(currentValue)!
+                returnData.stockPurchase = "$" + numberFormatter.stringFromNumber(originalValue)!
+
+                if currentValue >= originalValue {  // profit
+                    returnData.stockDiff = "$" + numberFormatter.stringFromNumber(dif)!
+                } else {  // loss
+                    returnData.stockDiff = "-$" + numberFormatter.stringFromNumber(dif)!
+                }
+                
+                returnData.barChartTitles = ["Bought", "Now"]
+                returnData.barChartData = [originalValue, currentValue]
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(returnData : returnData)
+                }
+            }
+        }
+    }
+    
+//-----------------------------------
+// function to find index in structure
+//-----------------------------------
+    func getIndexofCode(code : String) -> Int{
+        for (i,x) in self.dataArray.enumerate() {
+            if (x.code == code) {
+                return(i)
+            }
+        }
+        return(-1)
+    }
+
+//-------------------------------------
+// Do single shares
+//-------------------------------------
+    
+    func getDataForShare(ind : Int, completion:(returnData: basicShareStructure) ->()) {
         
 // pop our code on a thread
         
@@ -105,7 +214,6 @@ class SharesCalculator {
 // charts
             
                 returnData.barChartTitles = ["Bought", "Close", "Now"]
-                print(bou)
                 returnData.barChartData = [bou, Double(shares.previousClose)! * vol, Double(shares.last)! * vol]
             
                 dispatch_async(dispatch_get_main_queue()) {
@@ -131,21 +239,28 @@ class SharesCalculator {
     }
     
     
-    func getDataForHistoric(code : String, completion:(returnData: tableData) ->()) {
-        self.yahoo.getYahooHistoricPrices(code, timeString: "1d") { (shares) -> () in
-            print(shares)
-            var returnData = tableData()
-            var hd = [String]()
-            var dd = [Double]()
+    func getDataForHistoric(ind : Int, code : String, completion:(returnData: tableData) ->()) {
+        
+        if (self.dataArray[ind].members == nil) {
+            self.yahoo.getYahooHistoricPrices(code, timeString: "1d") { (shares) -> () in
+                var returnData = tableData()
+                var hd = [String]()
+                var dd = [Double]()
 
-            for item in shares {
-                hd.append(String(item.date))
-                dd.append(item.value)
-            }
-            returnData.headings = hd
-            returnData.data = dd
+                for item in shares {
+                    hd.append(String(item.date))
+                    dd.append(item.value)
+                }
+                returnData.headings = hd
+                returnData.data = dd
             
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(returnData : returnData)
+                }
+            }
+        } else {
             dispatch_async(dispatch_get_main_queue()) {
+                let returnData = tableData()
                 completion(returnData : returnData)
             }
         }
@@ -197,7 +312,18 @@ class SharesCalculator {
 // load our data from Core Data
 //-----------------------------------
     func loadData() {
+        
+// synthetic All group
+        var newItem = shareOrPortfolioData()
+        newItem.code = "All"
+        newItem.isGroup = true
+        newItem.members = nil
+        newItem.purchase = nil
+        newItem.title = "All Shares"
+        newItem.units = nil
 
+        self.dataArray.append(newItem)
+        
 // Portfolios (Groups)
         let grReq: NSFetchRequest = NSFetchRequest(entityName: "Groupings")
 
@@ -215,7 +341,11 @@ class SharesCalculator {
                 newItem.units = nil
                 newItem.purchase = nil
                 newItem.isGroup = true
-                newItem.members = nil
+                
+                var memberString : String
+                memberString = result[index].valueForKey("code") as! String
+                let memberArray = memberString.characters.split{$0 == ","}.map(String.init)  // what a shit way to do string.split(",")
+                newItem.members = memberArray
                 self.dataArray.append(newItem)
             }
             
@@ -247,6 +377,15 @@ class SharesCalculator {
         } catch {
             print("Error")
         }
+        
+// update All group with the codes
+        var allcodes = [String]()
+        for item in self.dataArray {
+            if (item.code != "All") && (item.members == nil){
+                allcodes.append(item.code)
+            }
+        }
 
+        self.dataArray[0].members = allcodes
     }
 }

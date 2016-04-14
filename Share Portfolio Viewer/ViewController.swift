@@ -51,8 +51,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        self.calc.saveNewShares("MQG.ax", description: "Macquarie Group", units: 500, purchasePrice: 65.852)
 //        self.calc.saveNewShares("TCL.ax", description: "Transurban Group", units: 7000, purchasePrice: 11.091)
 //        self.calc.saveNewShares("WFD.ax", description: "Westfield", units: 8000, purchasePrice: 10.102)
-
-     
+//
+//     
 //        self.calc.saveNewGroup("Financials", code: "MQG.ax,CBA.ax", description: "Finance Companies")
         
     }
@@ -97,8 +97,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         // Historic Data - this is outside the return function above so should run in parallel
-        self.calc.getDataForHistoric(code) { (tableData) ->() in
-            self.drawLineChart(tableData.headings, values: tableData.data)
+        self.calc.getDataForHistoric(ind, code: code) { (tableData) ->() in
+            if (tableData.headings != nil) {
+                self.drawLineChart(tableData.headings, values: tableData.data)
+            }
         }
     }
     

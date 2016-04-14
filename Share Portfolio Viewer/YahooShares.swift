@@ -153,7 +153,6 @@ class YahooShares {
                     let ourOffset = NSTimeZone.localTimeZone().secondsFromGMT
                     let theirOffset = historicData["meta"]["gmtoffset"].int
                     let offset = theirOffset! + ourOffset
-                    print(offset)
                     
 // Go through the "series" data and add to array
                     
@@ -198,7 +197,7 @@ class YahooShares {
                 let json = JSON(data: response.result.value!)
                 
                 for (_, subJson):(String, JSON) in json["query"]["results"]["quote"] {
-                    print(subJson)
+                    
                     let item = SharePortfolioPrices(code: subJson["symbol"].string, price: Double(subJson["Bid"].string!))
                     results.append(item)
                 }
