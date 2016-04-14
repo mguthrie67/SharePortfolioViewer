@@ -10,6 +10,7 @@
 		5C0A3F6D12CEA855E3087B57 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00B787957241F67608DFD15 /* Pods.framework */; };
 		DDE0CC511CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0CC4F1CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift */; };
 		DDE0CC521CBF48D700D3EEF1 /* Groupings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0CC501CBF48D700D3EEF1 /* Groupings.swift */; };
+		DDEA82D21CBF775400139D0C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA82D11CBF775400139D0C /* SettingsViewController.swift */; };
 		DDF8C01A1CBC6D99004D1BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */; };
 		DDF8C01C1CBC6D99004D1BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */; };
 		DDF8C01F1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDF8C01D1CBC6D99004D1BC4 /* Share_Portfolio_Viewer.xcdatamodeld */; };
@@ -83,6 +84,7 @@
 		C00B787957241F67608DFD15 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE0CC4F1CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Groupings+CoreDataProperties.swift"; path = "Share Portfolio Viewer/Groupings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DDE0CC501CBF48D700D3EEF1 /* Groupings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groupings.swift; path = "Share Portfolio Viewer/Groupings.swift"; sourceTree = "<group>"; };
+		DDEA82D11CBF775400139D0C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DDF8C0161CBC6D99004D1BC4 /* Share Portfolio Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Portfolio Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF8C0191CBC6D99004D1BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				DDF8C0411CBF18AA004D1BC4 /* SwiftyJSON.swift */,
 				DDF8C01B1CBC6D99004D1BC4 /* ViewController.swift */,
 				DDF8C0201CBC6D99004D1BC4 /* Main.storyboard */,
+				DDEA82D11CBF775400139D0C /* SettingsViewController.swift */,
 				DDF8C0481CBF1C08004D1BC4 /* SharesCalculator.swift */,
 				DDF8C04D1CBF1C12004D1BC4 /* YahooShares.swift */,
 				DDF8C0231CBC6D9A004D1BC4 /* Assets.xcassets */,
@@ -358,6 +361,7 @@
 				DDF8C0421CBF18AA004D1BC4 /* SwiftyJSON.swift in Sources */,
 				DDF8C04E1CBF1C12004D1BC4 /* YahooShares.swift in Sources */,
 				DDF8C05A1CBF2E65004D1BC4 /* Shares.swift in Sources */,
+				DDEA82D21CBF775400139D0C /* SettingsViewController.swift in Sources */,
 				DDF8C0491CBF1C08004D1BC4 /* SharesCalculator.swift in Sources */,
 				DDE0CC511CBF48D700D3EEF1 /* Groupings+CoreDataProperties.swift in Sources */,
 			);

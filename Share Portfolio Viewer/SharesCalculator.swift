@@ -125,7 +125,7 @@ class SharesCalculator {
                 
                 }
                 
-                let dif = currentValue - originalValue
+                let dif = abs(currentValue - originalValue)
                 
                 returnData.stockValue = "$" + numberFormatter.stringFromNumber(currentValue)!
                 returnData.stockPurchase = "$" + numberFormatter.stringFromNumber(originalValue)!
@@ -356,7 +356,6 @@ class SharesCalculator {
 // codes
         
         let freq: NSFetchRequest = NSFetchRequest(entityName: "Shares")
- //       freq.predicate = NSPredicate(format: "code contains[c] %@", "CB")
         let sorter: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: true)
         freq.sortDescriptors = [sorter]
         freq.returnsObjectsAsFaults = false
@@ -387,5 +386,37 @@ class SharesCalculator {
         }
 
         self.dataArray[0].members = allcodes
+    }
+    
+//------------------------------------------
+// Delete a share from memory and storage
+//------------------------------------------
+    func deleteShare(code : String) {
+        
+// delete from our array        
+        let index = self.getIndexofCode(code)
+        self.dataArray.removeAtIndex(index)
+
+// delete from Core Data
+        let predicate = NSPredicate(format: "code == %@", code)
+        
+        let fetchRequest = NSFetchRequest(entityName: "Shares")
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedEntities = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [Shares]
+            if let entityToDelete = fetchedEntities.first {
+                self.managedObjectContext.deleteObject(entityToDelete)
+            }
+        } catch {
+            print("Failed to delete object")
+        }
+        
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print("Failed to save Context")
+        }
+        
     }
 }

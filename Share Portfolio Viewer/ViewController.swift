@@ -10,9 +10,14 @@ import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var pageTitle: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var boughtLabel: UILabel!
+    @IBOutlet weak var volumeLabel: UILabel!
+    @IBOutlet weak var changeLabel: UILabel!
+    @IBOutlet weak var purchasedLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
-
     @IBOutlet weak var stockName: UILabel!
     @IBOutlet weak var stockVolume: UILabel!
     @IBOutlet weak var stockBought: UILabel!
@@ -20,7 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var stockPurchased: UILabel!
     @IBOutlet weak var stockDifference: UILabel!
     @IBOutlet weak var stockPrice: UILabel!
-    
+
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var lineChartView: LineChartView!
     
@@ -40,6 +46,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+// start first thing on the list
+        self.getData(0, code: self.calc.getCode(0), name: self.calc.getTitle(0))
+        
         
 //        self.calc.saveNewShares("A2M.ax", description: "A2 Milk Company", units: 10000, purchasePrice: 1.658)
 //        self.calc.saveNewShares("BGA.ax", description: "Bega Cheese", units: 1000, purchasePrice: 6.01)
@@ -57,6 +66,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+//---------------------------------------------------
+// intercept segue and pass in our instance of calc
+//---------------------------------------------------
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController as! SettingsViewController
+            controller.calc = self.calc
+    }
+    
     //-------------------------------------
     // function to blank the screen data
     //-------------------------------------
@@ -69,6 +86,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.stockPurchased.text = ""
         self.stockValue.text = ""
         self.stockDifference.text = ""
+        self.pageTitle.hidden = true
+        self.priceLabel.hidden = true
+        self.boughtLabel.hidden = true
+        self.volumeLabel.hidden = true
+        self.changeLabel.hidden = true
+        self.purchasedLabel.hidden = true
+        self.valueLabel.hidden = true
         
     }
     
@@ -89,6 +113,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.stockPurchased.text    = data.stockPurchase
             self.stockValue.text        = data.stockValue
             self.stockDifference.text   = data.stockDiff
+            
+            self.pageTitle.hidden = false
+            self.priceLabel.hidden = false
+            self.boughtLabel.hidden = false
+            self.volumeLabel.hidden = false
+            self.changeLabel.hidden = false
+            self.purchasedLabel.hidden = false
+            self.valueLabel.hidden = false
             
             // charts
             
