@@ -24,19 +24,22 @@ struct tableData {
     var data     : [Double]!
 }
 
+struct shareOrPortfolioData {
+    var code : String!
+    var title : String!
+    var purchase: Double!
+    var units: Int!
+    var isGroup: BooleanType!
+    var members : [String!]!
+    
+}
 
 
 class SharesCalculator {
     
     // static data - add UI to manage this later
     
-    var titleArray          = [String]()
-    var codeArray           = [String]()
-    var purchaseArray       = [Double]()
-    var unitsArray          = [Int]()
-    var groupArray          = [String]()
-    var groupTitleArray     = [String]()
-    var groupMembersArray   = [String]()
+    var dataArray = [shareOrPortfolioData]()
 
 // helper class
     
@@ -50,7 +53,7 @@ class SharesCalculator {
         self.loadData()
     }
     
-    func getDataForShareOrPortfolio(code : String, completion:(returnData: basicShareStructure) ->()) {
+    func getDataForShareOrPortfolio(ind : Int, completion:(returnData: basicShareStructure) ->()) {
         
 // pop our code on a thread
         
@@ -60,10 +63,6 @@ class SharesCalculator {
         
             let numberFormatter = NSNumberFormatter()
             numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-    
-            
-            
-  //          var coredata = [NSManagedObject]()
             
         
         
@@ -73,26 +72,24 @@ class SharesCalculator {
         //              but instead it gets stuck on the end. So this says "call the function
         //              getYahooPrices with the parameter code and here is function stuck on the
         //              end in {} to run when you've done that. This won't then block.
+            
+            let code = self.dataArray[ind].code
         
             self.yahoo.getYahooPrices(code) { (shares) -> () in
-            
-// find index of arrays from the code passed
-            
-                let ind = self.codeArray.indexOf(code)
             
 // set the text on the screen
             
                 var returnData = basicShareStructure()
             
                 returnData.stockPrice = "$" + shares.bid!
-                let purnum = Double(self.purchaseArray[ind!])
+                let purnum = self.dataArray[ind].purchase
                 returnData.stockPaid = "$" + String(format: "%.2f", purnum)
-                returnData.stockVolume = numberFormatter.stringFromNumber(Double(self.unitsArray[ind!]))
+                returnData.stockVolume = numberFormatter.stringFromNumber(self.dataArray[ind].units)
             
 // calculations
             
-                let pur = Double(self.purchaseArray[ind!])
-                let vol = Double(self.unitsArray[ind!])
+                let pur = self.dataArray[ind].purchase
+                let vol = Double(self.dataArray[ind].units)
                 let now = Double(shares.last!)
                 let bou = pur * vol
                 let val = now! * vol
@@ -122,25 +119,15 @@ class SharesCalculator {
     // return code and title info
     
     func getTitle(index: Int) -> String{
-        if index < self.groupTitleArray.count {
-            return self.groupTitleArray[index]
-        } else {
-            return self.titleArray[index - self.groupTitleArray.count]
-        }
+        return self.dataArray[index].title
     }
 
     func getCode(index: Int) -> String{
-        print(index)
-        print(self.groupArray.count)
-        if index < self.groupArray.count {
-            return self.groupArray[index]
-        } else {
-            return self.codeArray[index - self.groupArray.count]
-        }
+        return self.dataArray[index].code
     }
 
     func getLength() -> Int {
-        return self.codeArray.count + self.groupArray.count
+        return self.dataArray.count
     }
     
     
@@ -222,16 +209,19 @@ class SharesCalculator {
             let result : [AnyObject] = try self.managedObjectContext.executeFetchRequest(grReq)
             
             for (index, _) in result.enumerate() {
-                self.groupArray.append(result[index].valueForKey("name") as! String)
-                self.groupTitleArray.append(result[index].valueForKey("title") as! String)
-                self.groupMembersArray.append(result[index].valueForKey("code") as! String)
+                var newItem = shareOrPortfolioData()
+                newItem.code = result[index].valueForKey("name") as! String
+                newItem.title = result[index].valueForKey("title") as! String
+                newItem.units = nil
+                newItem.purchase = nil
+                newItem.isGroup = true
+                newItem.members = nil
+                self.dataArray.append(newItem)
             }
             
         } catch {
             print("Error")
         }
-        
-        print(self.groupArray)
 
 // codes
         
@@ -244,10 +234,14 @@ class SharesCalculator {
             let result : [AnyObject] = try self.managedObjectContext.executeFetchRequest(freq)
             
             for (index, _) in result.enumerate() {
-                self.codeArray.append(result[index].valueForKey("code") as! String)
-                self.titleArray.append(result[index].valueForKey("name") as! String)
-                self.purchaseArray.append(result[index].valueForKey("purchasePrice") as! Double)
-                self.unitsArray.append(result[index].valueForKey("volume") as! Int)
+                var newItem = shareOrPortfolioData()
+                newItem.code = result[index].valueForKey("code") as! String
+                newItem.title = result[index].valueForKey("name") as! String
+                newItem.units = result[index].valueForKey("volume") as! Int
+                newItem.purchase = result[index].valueForKey("purchasePrice") as! Double
+                newItem.isGroup = false
+                newItem.members = nil
+                self.dataArray.append(newItem)
             }
             
         } catch {

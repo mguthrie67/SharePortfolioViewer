@@ -76,11 +76,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Function to get the stock data and update the screen
     //---------------------------------------------------------
     
-    func getData(code: String, name : String) {
+    func getData(ind: Int, code: String, name : String) {
         
         self.blankScreen()
         
-        self.calc.getDataForShareOrPortfolio(code) { (data) -> () in
+        self.calc.getDataForShareOrPortfolio(ind) { (data) -> () in
             
             self.stockName.text         = name
             self.stockPrice.text        = data.stockPrice
@@ -107,7 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //--------------------------------------//
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.getData(self.calc.getCode(indexPath.row), name: self.calc.getTitle(indexPath.row))
+        self.getData(indexPath.row, code: self.calc.getCode(indexPath.row), name: self.calc.getTitle(indexPath.row))
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
